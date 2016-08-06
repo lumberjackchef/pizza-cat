@@ -17,7 +17,7 @@ let express = require('express'),
 // app init
 app
   // view engine setup
-  .set('views', path.join(__dirname, 'views'))
+  .set('views', path.join(__dirname, 'public/themes/default/templates'))
   .set('view engine', 'pug')
 
   // uncomment after placing your favicon in /public
