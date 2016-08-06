@@ -1,7 +1,5 @@
 "use strict";
 
 module.exports = {
-  dbHost: "<host>",
-  dbPort: "<port>",
-  dbName: "<database name>"
+  db: "mongodb://<host><:port>/<database name>"
 }

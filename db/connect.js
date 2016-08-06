@@ -3,7 +3,7 @@
 let mongoose = require('mongoose'),
     Schema = mongoose.Schema,
 
-    config = require('./config.js')
+    config = require('./config')
 
     // Superhero = new Schema(
     //   {name: String}
@@ -12,4 +12,4 @@ let mongoose = require('mongoose'),
 
 // mongoose.model('superheros', Superhero);
 
-mongoose.connect("mongodb://" + config.dbHost + ":" + config.dbPort + "/" + config.dbName);
+mongoose.connect(config.db);
