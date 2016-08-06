@@ -3,13 +3,13 @@
 let mongoose = require('mongoose'),
     Schema = mongoose.Schema,
 
-    config = require('./config')
+    config = require('./config'),
 
-    // Superhero = new Schema(
-    //   {name: String}
-    // )
+    Entity = new Schema(
+      {name: String}
+    )
 ;
 
-// mongoose.model('superheros', Superhero);
+mongoose.model('entities', Entity);
 
 mongoose.connect(config.db);
