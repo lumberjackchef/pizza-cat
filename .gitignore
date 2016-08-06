@@ -40,4 +40,4 @@ jspm_packages
 .DS_Store
 
 # DB & Server config file
-server/config.js
+db/config.js
