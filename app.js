@@ -1,5 +1,7 @@
 "use strict";
 
+require('./db/connect');
+
 let express = require('express'),
     path = require('path'),
     favicon = require('serve-favicon'),
@@ -12,13 +14,14 @@ let express = require('express'),
 
     app = express();
 
-// view engine setup
+// app init
 app
+  // view engine setup
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'pug')
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+  // uncomment after placing your favicon in /public
+  // .use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
   .use(logger('dev'))
   .use(bodyParser.json())
   .use(bodyParser.urlencoded({ extended: false }))
@@ -28,7 +31,7 @@ app
   .use('/', routes)
   .use('/users', users)
 
-// catch 404 and forward to error handler
+  // catch 404 and forward to error handler
   .use(function(req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;
@@ -53,11 +56,13 @@ if (app.get('env') === 'development') {
 // production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
-  res.status(err.status || 500);
-  res.render('error', {
-    message: err.message,
-    error: {}
-  });
+  res
+    .status(err.status || 500)
+    .render('error', {
+      message: err.message,
+      error: {}
+    })
+  ;
 });
 
 
