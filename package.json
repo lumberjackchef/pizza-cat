@@ -2,8 +2,6 @@
   "name": "pizza-cat",
   "version": "0.0.1",
   "description": "An MV_ CMS framework",
-  "private": true,
-  "main": "app.js",
   "scripts": {
     "start": "node ./bin/www"
   },
@@ -11,12 +9,12 @@
     "type": "git",
     "url": "git+https://github.com/lumberjackchef/pizza-cat.git"
   },
-  "author": "Ryan Pearson",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/lumberjackchef/pizza-cat/issues"
   },
   "homepage": "https://github.com/lumberjackchef/pizza-cat#readme",
+  "author": "Ryan Pearson <ryan@ryanpearson.net> (http://www.ryanpearson.net)",
+  "license": "MIT",
   "dependencies": {
     "body-parser": "~1.15.1",
     "cookie-parser": "~1.4.3",
