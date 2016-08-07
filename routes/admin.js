@@ -1,7 +1,5 @@
 "use strict";
 
-require('./db/connect');
-
 let express = require('express'),
     path = require('path'),
     favicon = require('serve-favicon'),
@@ -9,30 +7,26 @@ let express = require('express'),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
 
-    routes = require('./routes/index'),
-    admin = require('./routes/admin'),
-    users = require('./routes/users'),
+    routes = require('./admin-routes/index'),
 
-    app = express();
+    admin = express();
+/* GET users listing. */
+admin
 
-// app init
-app
   // views & engine setup
-  .set('views', path.join(__dirname, 'public/themes/default/templates'))
+  .set('views', path.join(__dirname, '../public/admin-themes/default/templates'))
   .set('view engine', 'pug')
 
   // uncomment after placing your favicon in /public
-  .use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
+  .use(favicon(path.join(__dirname, '../public', 'favicon.ico')))
   .use(logger('dev'))
   .use(bodyParser.json())
   .use(bodyParser.urlencoded({ extended: false }))
   .use(cookieParser())
-  .use(express.static(path.join(__dirname, 'public')))
+  .use(express.static(path.join(__dirname, '../public')))
 
   // routing
   .use('/', routes)
-  .use('/admin', admin)
-  .use('/users', users)
 
   // catch 404 and forward to error handler
   .use(function(req, res, next) {
@@ -46,8 +40,8 @@ app
 
 // development error handler
 // will print stacktrace
-if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
+if (admin.get('env') === 'development') {
+  admin.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('error', {
       message: err.message,
@@ -58,7 +52,7 @@ if (app.get('env') === 'development') {
 
 // production error handler
 // no stacktraces leaked to user
-app.use(function(err, req, res, next) {
+admin.use(function(err, req, res, next) {
   res
     .status(err.status || 500)
     .render('error', {
@@ -69,4 +63,4 @@ app.use(function(err, req, res, next) {
 });
 
 
-module.exports = app;
+module.exports = admin;
