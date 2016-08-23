@@ -11,7 +11,6 @@ let express = require('express'),
 
     routes = require('./routes/index'),
     admin = require('./routes/admin'),
-    users = require('./routes/users'),
 
     app = express();
 
@@ -32,7 +31,6 @@ app
   // routing
   .use('/', routes)
   .use('/admin', admin)
-  .use('/users', users)
 
   // catch 404 and forward to error handler
   .use(function(req, res, next) {
